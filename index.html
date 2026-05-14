@@ -529,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         After submission the page URL changes to <code>?page=thank-you</code> (simulated here via <code>history.pushState</code>). In GTM: create a <em>Pageview</em> trigger where <code>Page URL contains /thank-you</code>. This is the most reliable method when available.
       </div>
 
-      <form id="form-thankyou" novalidate>
+      <form id="form-thankyou">
         <div class="two-col">
           <div class="form-group">
             <label for="ty-name">Full Name *</label>
@@ -572,7 +572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         This form submits silently using <code>fetch()</code> and pushes an <code>ajaxComplete</code> event to the dataLayer (matching the Bounteous/LunaMetrics listener pattern). In GTM: create a <em>Custom Event</em> trigger for <code>ajaxComplete</code>, then filter by <code>attributes.response.message contains Thank you</code>.
       </div>
 
-      <form id="form-ajax" novalidate>
+      <form id="form-ajax">
         <div class="two-col">
           <div class="form-group">
             <label for="ajax-name">Name *</label>
@@ -609,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         After successful submit, a success <code>&lt;div class="form-success-message"&gt;</code> becomes visible. In GTM: create an <em>Element Visibility</em> trigger → CSS Selector <code>.form-success-message</code> → enable <em>Observe DOM Changes</em>. No page reload needed.
       </div>
 
-      <form id="form-visibility" novalidate>
+      <form id="form-visibility">
         <div class="two-col">
           <div class="form-group">
             <label for="vis-email">Email *</label>
@@ -650,7 +650,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         A custom JavaScript listener watches for a specific DOM event (<code>formSuccess</code>) dispatched by the form handler. The Custom HTML tag in GTM contains the listener; a Custom Event trigger catches <code>customFormSuccess</code> from dataLayer. Test: the event fires only on valid submit.
       </div>
 
-      <form id="form-custom-listener" novalidate>
+      <form id="form-custom-listener">
         <div class="two-col">
           <div class="form-group">
             <label for="cl-name">Name *</label>
@@ -691,7 +691,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         The most robust method. The developer adds a <code>window.dataLayer.push()</code> call in the form callback. In GTM: create a <em>Custom Event</em> trigger for <code>formSubmission</code>. Add Data Layer Variables for <code>formType</code> and <code>formPosition</code>, then use them as GA4 event parameters.
       </div>
 
-      <form id="form-datalayer" novalidate>
+      <form id="form-datalayer">
         <div class="two-col">
           <div class="form-group">
             <label for="dl-name">Name *</label>
@@ -733,7 +733,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         After submit a message with id <code>dom-success-msg</code> and class <code>form-dom-success</code> appears. In GTM: create a <em>DOM Element</em> variable → CSS Selector <code>.form-dom-success</code> → attribute empty (gets innerText). Then a <em>DOM Ready</em> trigger fires when that variable equals "Thanks for subscribing!".
       </div>
 
-      <form id="form-dom" novalidate>
+      <form id="form-dom">
         <div class="form-group" style="margin-bottom:14px">
           <label for="dom-email">Email Address *</label>
           <input type="email" id="dom-email" name="email" placeholder="newsletter@example.com" required />
